@@ -26,7 +26,6 @@ public class JshellMojo extends AbstractMojo {
 
 		ProcessBuilder builder = new ProcessBuilder(buildArguments())
 				.inheritIO();
-		getLog().info("Starting with: %s".formatted(builder.command()));
 
 		try (Process p = builder.start()) {
 			// Do nothing, JShell is now running... Our work is done.
@@ -45,6 +44,10 @@ public class JshellMojo extends AbstractMojo {
 		return arguments;
 	}
 
+	/**
+	 * The delimiter only for *nix systems and mac os,
+	 * for windows the separator should be ;
+	 **/
 	private String projectClassPath() {
 		try {
 			return project.getCompileClasspathElements()
