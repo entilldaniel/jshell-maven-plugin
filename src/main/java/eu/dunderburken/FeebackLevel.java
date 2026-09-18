@@ -7,11 +7,13 @@ enum FeedbackLevel {
 	SILENT,
 	;
 
-	static FeedbackLevel parse(String feedback) {
+	static String parse(String feedback) {
+		FeedbackLevel level = NORMAL;
 		if (feedback == null) {
-			return FeedbackLevel.NORMAL;
+			level = valueOf(feedback);
 		}
 
-		return FeedbackLevel.valueOf(feedback.toUpperCase());
+		return level.name().toLowerCase();
 	}
+
 }

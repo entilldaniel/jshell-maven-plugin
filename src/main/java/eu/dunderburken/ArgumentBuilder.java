@@ -13,15 +13,21 @@ public class ArgumentBuilder {
 
 	private final MavenProject project;
 	private final List<String> files;
-	private final FeedbackLevel feedbackLevel;
+	private final List<String> compilerFlags;
+	private final List<String> runtimeFlags;
+	private final String feedbackLevel;
 	private final Boolean preview;
 
 	public ArgumentBuilder(MavenProject project,
 			List<String> files,
+			List<String> compiler,
+			List<String> runtime,
 			String feedbackLevel,
 			Boolean preview) {
 		this.project = project;
 		this.files = files;
+		this.compilerFlags = compiler.stream().map(s -> "-C%s".formatted(s)).toList();
+		this.runtimeFlags = runtime.stream().map(s -> "-J%s".formatted(s)).toList();
 		this.feedbackLevel = FeedbackLevel.parse(feedbackLevel);
 		this.preview = preview;
 	}
@@ -33,10 +39,11 @@ public class ArgumentBuilder {
 		if (preview) {
 			arguments.add("--enable-preview");
 		}
-
 		arguments.addAll(projectClassPath());
 		arguments.add("--feedback");
-		arguments.add(feedbackLevel.name().toLowerCase());
+		arguments.add(feedbackLevel);
+		arguments.addAll(compilerFlags);
+		arguments.addAll(runtimeFlags);
 		arguments.addAll(files);
 
 		return arguments;

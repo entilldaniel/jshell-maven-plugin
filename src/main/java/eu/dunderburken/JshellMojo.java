@@ -20,6 +20,12 @@ public class JshellMojo extends AbstractMojo {
 	@Parameter(property = "loadFiles", required = false)
 	private List<String> loadFiles;
 
+	@Parameter(property = "compilerFlags", required = false)
+	private List<String> compilerFlags;
+
+	@Parameter(property = "runtimeFlags", required = false)
+	private List<String> runtimeFlags;
+
 	@Parameter(property = "feedback", required = false, defaultValue = "normal")
 	private String feedback;
 
@@ -28,7 +34,8 @@ public class JshellMojo extends AbstractMojo {
 
 	@Override
 	public void execute() throws MojoExecutionException, MojoFailureException {
-		ArgumentBuilder ab = new ArgumentBuilder(project, loadFiles, feedback, enablePreview);
+		ArgumentBuilder ab = new ArgumentBuilder(project, loadFiles, compilerFlags, runtimeFlags, feedback,
+				enablePreview);
 
 		ProcessBuilder builder = new ProcessBuilder(ab.build())
 				.inheritIO();

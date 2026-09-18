@@ -58,11 +58,17 @@
           <version>1.0-SNAPSHOT</version>
 		  <configuration>
 			<enablePreview>true</enablePreview>
-			<feedback>silent</feedback>
+			<feedback>verbose</feedback>
 			<loadFiles>
 			  <item>JAVASE</item>
 			  <item>PRINTING</item>
 			</loadFiles>
+			<compilerFlags>
+			  <flag>-g:source</flag>
+			</compilerFlags>
+			<runtimeFlags>
+			  <flag>-Xms128m</flag>
+			</runtimeFlags>
 		  </configuration>
         </plugin>
 	  </plugins>
@@ -80,3 +86,4 @@
   </reporting>
   
 </project>
+
