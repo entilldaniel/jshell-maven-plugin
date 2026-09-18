@@ -1,4 +1,4 @@
-package eu.dunderburken;
+package eu.dunderburken.jshell;
 
 import java.io.IOException;
 import java.util.List;
