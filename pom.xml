@@ -6,12 +6,10 @@
   <packaging>maven-plugin</packaging>
   <version>1.0-SNAPSHOT</version>
 
-  
   <name>jshell-maven-plugin</name>
   <description>Run JShell from your project with the project class path and configure JShell flags.</description>
   <url>https://github.com/entilldaniel/jshell-maven-plugin</url>
   <inceptionYear>2026</inceptionYear>
-  <licenses>MIT</licenses>
   <scm>
 	<connection>scm:git:ssh://github.com/entilldaniel/jshell-maven-plugin.git</connection>
   </scm>
