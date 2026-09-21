@@ -40,11 +40,14 @@ public class JshellMojo extends AbstractMojo {
 		ProcessBuilder builder = new ProcessBuilder(ab.build())
 				.inheritIO();
 
-		try (Process p = builder.start()) {
-			// Do nothing, JShell is now running...
-			// Our work is done.
+		try {
+
+			Process p = builder.start();
+			p.waitFor();
 		} catch (IOException e) {
 			getLog().error("Could not start JShell", e);
+		} catch (InterruptedException e) {
+			getLog().error("Could not wait for process to finish.");
 		}
 	}
 

@@ -47,9 +47,11 @@ public class ArgumentBuilder {
 			Boolean preview) {
 		this.project = project;
 		this.files = files.stream()
-				.map(f -> isPreset.apply(f) ? f : project.getBasedir().toPath().resolve(f).toString()).toList();
-		this.compilerFlags = compiler.stream().map(s -> "-C%s".formatted(s)).toList();
-		this.runtimeFlags = runtime.stream().map(s -> "-J%s".formatted(s)).toList();
+				.map(f -> isPreset.apply(f) ? f : project.getBasedir().toPath().resolve(f).toString())
+				.collect(Collectors.toList());
+
+		this.compilerFlags = compiler.stream().map(s -> String.format("-C%s", s)).collect(Collectors.toList());
+		this.runtimeFlags = runtime.stream().map(s -> String.format("-J%s", s)).collect(Collectors.toList());
 		this.feedbackLevel = FeedbackLevel.parse(feedbackLevel);
 		this.preview = preview;
 	}
