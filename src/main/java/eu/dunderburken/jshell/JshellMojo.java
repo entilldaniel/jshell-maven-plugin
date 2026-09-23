@@ -41,7 +41,6 @@ public class JshellMojo extends AbstractMojo {
 				.inheritIO();
 
 		try {
-
 			Process p = builder.start();
 			p.waitFor();
 		} catch (IOException e) {
