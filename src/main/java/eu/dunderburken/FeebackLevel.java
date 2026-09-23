@@ -1,4 +1,4 @@
-package eu.dunderburken.jshell;
+package eu.dunderburken;
 
 enum FeedbackLevel {
 	VERBOSE,

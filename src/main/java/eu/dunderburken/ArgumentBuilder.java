@@ -1,4 +1,4 @@
-package eu.dunderburken.jshell;
+package eu.dunderburken;
 
 import java.io.File;
 import java.util.ArrayList;
