@@ -11,7 +11,7 @@
   <url>https://github.com/entilldaniel/jshell-maven-plugin</url>
   <inceptionYear>2026</inceptionYear>
   <scm>
-	<connection>scm:git:ssh://github.com/entilldaniel/jshell-maven-plugin.git</connection>
+	<developerConnection>scm:git:ssh://github.com/entilldaniel/jshell-maven-plugin.git</developerConnection>
   </scm>
   <properties>
 	<maven.compiler.release>11</maven.compiler.release>
@@ -50,54 +50,77 @@
 	<pluginManagement>
 	  <plugins>
 		<plugin>
-		  <groupId>org.apache.maven.plugins</groupId>
-		  <artifactId>maven-plugin-plugin</artifactId>
-          <version>${maven-plugin-tools.version}</version>
-          <executions>
-            <execution>
-              <id>help-mojo</id>
-              <goals>
-                <goal>helpmojo</goal>
-              </goals>
-            </execution>
-          </executions>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-release-plugin</artifactId>
+          <version>3.1.1</version>
+          <configuration>
+            <arguments>-ntp</arguments>
+            <scmCommentPrefix />
+            <tagNameFormat>v@{project.version}</tagNameFormat>
+          </configuration>
 		</plugin>
-		<plugin>
-		  <groupId>org.apache.maven.plugins</groupId>
-		  <artifactId>maven-javadoc-plugin</artifactId>
-		  <version>3.6.3</version>
-		  <executions>
-			<execution>
-			  <goals>
-				<goal>jar</goal>
-			  </goals>
-			</execution>
-		  </executions>
-		</plugin>
-
-
-		
-		<plugin>
-          <groupId>eu.dunderburken</groupId>
-          <artifactId>jshell-maven-plugin</artifactId>
-          <version>1.0-SNAPSHOT</version>
-		  <configuration>
-			<enablePreview>true</enablePreview>
-			<feedback>verbose</feedback>
-			<loadFiles>
-			  <item>JAVASE</item>
-			  <item>PRINTING</item>
-			</loadFiles>
-			<compilerFlags>
-			  <flag>-g:source</flag>
-			</compilerFlags>
-			<runtimeFlags>
-			  <flag>-Xms128m</flag>
-			</runtimeFlags>
-		  </configuration>
-        </plugin>
 	  </plugins>
 	</pluginManagement>
+	<plugins>
+	  <plugin>
+		<groupId>org.apache.maven.plugins</groupId>
+		<artifactId>maven-plugin-plugin</artifactId>
+        <version>${maven-plugin-tools.version}</version>
+        <executions>
+          <execution>
+            <id>help-mojo</id>
+            <goals>
+              <goal>helpmojo</goal>
+            </goals>
+          </execution>
+        </executions>
+	  </plugin>
+	  <plugin>
+		<groupId>org.apache.maven.plugins</groupId>
+		<artifactId>maven-javadoc-plugin</artifactId>
+		<version>3.6.3</version>
+		<executions>
+		  <execution>
+			<goals>
+			  <goal>jar</goal>
+			</goals>
+		  </execution>
+		</executions>
+	  </plugin>
+	  <plugin>
+		<groupId>org.sonatype.central</groupId>
+		<artifactId>central-publishing-maven-plugin</artifactId>
+		<version>0.5.0</version>
+		<extensions>true</extensions>
+		<configuration>
+		  <autoPublish>false</autoPublish>
+		  <deploymentName>${project.artifactId}:${project.version}</deploymentName>
+		  <waitUntil>validated</waitUntil>
+		</configuration>
+	  </plugin>
+
+	  
+	  <!-- for testing the plugin. -->
+	  <plugin>
+        <groupId>eu.dunderburken</groupId>
+        <artifactId>jshell-maven-plugin</artifactId>
+        <version>1.0-SNAPSHOT</version>
+		<configuration>
+		  <enablePreview>true</enablePreview>
+		  <feedback>verbose</feedback>
+		  <loadFiles>
+			<item>JAVASE</item>
+			<item>PRINTING</item>
+		  </loadFiles>
+		  <compilerFlags>
+			<flag>-g:source</flag>
+		  </compilerFlags>
+		  <runtimeFlags>
+			<flag>-Xms128m</flag>
+		  </runtimeFlags>
+		</configuration>
+      </plugin>
+	</plugins>
   </build>
 
   <reporting>
@@ -111,4 +134,3 @@
   </reporting>
   
 </project>
-
