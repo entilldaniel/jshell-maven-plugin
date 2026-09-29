@@ -3,7 +3,7 @@
   <groupId>eu.dunderburken</groupId>
   <artifactId>jshell-maven-plugin</artifactId>
   <packaging>maven-plugin</packaging>
-  <version>1.0.0</version>
+  <version>1.0.1-SNAPSHOT</version>
 
   <name>jshell-maven-plugin</name>
   <description>Run JShell from your project with the project class path and configure JShell flags.</description>
