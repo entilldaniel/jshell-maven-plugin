@@ -119,25 +119,25 @@
 
 	  
 	  <!-- for testing the plugin. -->
-	  <plugin>
-        <groupId>eu.dunderburken</groupId>
-        <artifactId>jshell-maven-plugin</artifactId>
-        <version>1.0.1-SNAPSHOT</version>
-		<configuration>
-		  <enablePreview>true</enablePreview>
-		  <feedback>verbose</feedback>
-		  <loadFiles>
-			<item>JAVASE</item>
-			<item>PRINTING</item>
-		  </loadFiles>
-		  <compilerFlags>
-			<flag>-g:source</flag>
-		  </compilerFlags>
-		  <runtimeFlags>
-			<flag>-Xms128m</flag>
-		  </runtimeFlags>
-		</configuration>
-      </plugin>
+	  <!-- <plugin> -->
+      <!--   <groupId>eu.dunderburken</groupId> -->
+      <!--   <artifactId>jshell-maven-plugin</artifactId> -->
+      <!--   <version>1.0.0</version> -->
+	  <!-- 	<configuration> -->
+	  <!-- 	  <enablePreview>true</enablePreview> -->
+	  <!-- 	  <feedback>verbose</feedback> -->
+	  <!-- 	  <loadFiles> -->
+	  <!-- 		<item>JAVASE</item> -->
+	  <!-- 		<item>PRINTING</item> -->
+	  <!-- 	  </loadFiles> -->
+	  <!-- 	  <compilerFlags> -->
+	  <!-- 		<flag>-g:source</flag> -->
+	  <!-- 	  </compilerFlags> -->
+	  <!-- 	  <runtimeFlags> -->
+	  <!-- 		<flag>-Xms128m</flag> -->
+	  <!-- 	  </runtimeFlags> -->
+	  <!-- 	</configuration> -->
+      <!-- </plugin> -->
 	</plugins>
   </build>
 
