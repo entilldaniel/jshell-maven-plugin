@@ -19,6 +19,12 @@ All the following is part of the plugin configuration and thus ends up within a 
 
 ### Loading files
 If you want to add scripts they are relative to the root of the project.
+
+The built in alternatives are:
+ - DEFAULT
+ - JAVASE
+ - PRINTING
+
 ```xml
 <loadFiles>
 	<item>JAVASE</item>
