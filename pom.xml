@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>eu.dunderburken</groupId>
@@ -18,9 +19,7 @@
   </scm>
   
   <properties>
-	<maven.compiler.release>11</maven.compiler.release>
-	<maven.compiler.target>11</maven.compiler.target>
-	<maven.compiler.source>11</maven.compiler.source>
+	<maven.compiler.release>9</maven.compiler.release>
 	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 	<maven-plugin-tools.version>3.15.2</maven-plugin-tools.version>
@@ -132,25 +131,26 @@
 
 	  
 	  <!-- for testing the plugin. -->
-	  <!-- <plugin> -->
-      <!--   <groupId>eu.dunderburken</groupId> -->
-      <!--   <artifactId>jshell-maven-plugin</artifactId> -->
-      <!--   <version>1.0.0</version> -->
-	  <!-- 	<configuration> -->
-	  <!-- 	  <enablePreview>true</enablePreview> -->
-	  <!-- 	  <feedback>verbose</feedback> -->
-	  <!-- 	  <loadFiles> -->
-	  <!-- 		<item>JAVASE</item> -->
-	  <!-- 		<item>PRINTING</item> -->
-	  <!-- 	  </loadFiles> -->
-	  <!-- 	  <compilerFlags> -->
-	  <!-- 		<flag>-g:source</flag> -->
-	  <!-- 	  </compilerFlags> -->
-	  <!-- 	  <runtimeFlags> -->
-	  <!-- 		<flag>-Xms128m</flag> -->
-	  <!-- 	  </runtimeFlags> -->
-	  <!-- 	</configuration> -->
-      <!-- </plugin> -->
+	  <plugin>
+        <groupId>eu.dunderburken</groupId>
+        <artifactId>jshell-maven-plugin</artifactId>
+        <version>1.0.1</version>
+		<configuration>
+		  <enablePreview>true</enablePreview>
+		  <feedback>verbose</feedback>
+		  <loadFiles>
+			<item>JAVASE</item>
+			<item>PRINTING</item>
+			<item>scripts/init.jshell</item>
+		  </loadFiles>
+		  <compilerFlags>
+			<flag>-g:source</flag>
+		  </compilerFlags>
+		  <runtimeFlags>
+			<flag>-Xms128m</flag>
+		  </runtimeFlags>
+		</configuration>
+      </plugin>
 	</plugins>
   </build>
 

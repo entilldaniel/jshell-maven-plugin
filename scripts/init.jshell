@@ -1,0 +1,4 @@
+/set editor emacs
+
+System.out.println("Hello from a script!");
+
