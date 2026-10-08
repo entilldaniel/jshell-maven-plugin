@@ -1,6 +1,7 @@
 package eu.dunderburken;
 
 import java.io.File;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -67,6 +68,12 @@ public class ArgumentBuilder {
 			Boolean includeTest) {
 		this.project = project;
 		this.files = files.stream()
+				.map(f -> {
+					if (Paths.get(f).isAbsolute()) {
+						return Paths.get("/").relativize(Paths.get(f)).toString();
+					}
+					return f;
+				})
 				.map(f -> isPreset.apply(f) ? f : project.getBasedir().toPath().resolve(f))
 				.map(Object::toString)
 				.collect(Collectors.toList());
@@ -143,6 +150,10 @@ public class ArgumentBuilder {
 			String cp = Stream.of(project.getCompileClasspathElements(), extras, tests)
 					.flatMap(List::stream)
 					.collect(Collectors.joining(File.pathSeparator));
+
+			if (cp.isEmpty()) {
+				return Collections.emptyList();
+			}
 
 			return List.of("--class-path", cp);
 		} catch (DependencyResolutionRequiredException e) {
