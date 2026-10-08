@@ -4,7 +4,7 @@
   <groupId>eu.dunderburken</groupId>
   <artifactId>jshell-maven-plugin</artifactId>
   <packaging>maven-plugin</packaging>
-  <version>1.0.2-SNAPSHOT</version>
+  <version>1.0.2</version>
 
   <name>jshell-maven-plugin</name>
   <description>Run JShell from your project with the project class path and configure JShell flags.</description>
@@ -15,7 +15,7 @@
 	<connection>scm:git:https://github.com/entilldaniel/jshell-maven-plugin.git</connection>
 	<developerConnection>scm:git:git@github.com:entilldaniel/jshell-maven-plugin.git</developerConnection>
 	<url>https://github.com/entilldaniel/jshell-maven-plugin</url>
-	<tag>v1.0.0</tag>
+	<tag>v1.0.2</tag>
   </scm>
   
   <properties>
@@ -155,7 +155,7 @@
 	  <plugin>
         <groupId>eu.dunderburken</groupId>
         <artifactId>jshell-maven-plugin</artifactId>
-        <version>1.0.2-SNAPSHOT</version>
+        <version>1.0.2</version>
 		<configuration>
 		  <enablePreview>true</enablePreview>
 		  <feedback>verbose</feedback>
