@@ -5,6 +5,7 @@ enum FeedbackLevel {
 	NORMAL,
 	CONCISE,
 	SILENT,
+	CUSTOM,
 	;
 
 	static String parse(String feedback) {
