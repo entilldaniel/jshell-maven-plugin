@@ -7,7 +7,7 @@ import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.ResolutionScope;
 
-@Mojo(name = "jshell", requiresDependencyResolution = ResolutionScope.COMPILE)
+@Mojo(name = "jshell", requiresDependencyResolution = ResolutionScope.TEST)
 public class JshellMojo extends BaseJShellMojo {
 
 	@Override

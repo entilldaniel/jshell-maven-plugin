@@ -75,18 +75,25 @@ public abstract class BaseJShellMojo extends AbstractMojo {
 	@Parameter(property = "noStartup", required = false, defaultValue = "false")
 	private boolean noStartup;
 
+	/**
+	 * Include test classpath, true by default.
+	 **/
+	@Parameter(property = "includeTest", required = false, defaultValue = "true")
+	private boolean includeTest;
+
 	List<String> createArguments() {
 		return new ArgumentBuilder(project,
-								   loadFiles,
-								   compilerFlags,
-								   runtimeFlags,
-								   remoteFlags,
-								   modulePaths,
-								   modules,
-								   classPaths,
-								   feedback,
-								   enablePreview,
-								   noStartup).build();	
+				loadFiles,
+				compilerFlags,
+				runtimeFlags,
+				remoteFlags,
+				modulePaths,
+				modules,
+				classPaths,
+				feedback,
+				enablePreview,
+				noStartup,
+				includeTest).build();
 	}
-	
+
 }

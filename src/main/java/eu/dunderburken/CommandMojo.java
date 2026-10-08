@@ -5,7 +5,7 @@ import java.util.stream.Collectors;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.ResolutionScope;
 
-@Mojo(name = "command", requiresDependencyResolution = ResolutionScope.COMPILE)
+@Mojo(name = "command", requiresDependencyResolution = ResolutionScope.TEST)
 public class CommandMojo extends BaseJShellMojo {
 
 	@Override
